@@ -109,6 +109,22 @@
             ),
             'menu_icon' => 'dashicons-welcome-learn-more'
         ));
+
+        //Register Note
+        register_post_type('note',array(
+            'supports' => array('title', 'editor', 'author'),
+            'public' => false,
+            'show_in_rest' => true,
+            'show_ui' => true,
+            'labels' => array(
+                'name' => 'Notes',
+                'singular_name' => 'Note',
+                'add_new_item' => 'Add New Note',
+                'edit_item' => 'Edit Note',
+                'all_items' => 'All Notes'
+            ),
+            'menu_icon' => 'dashicons-welcome-write-blog'
+        ));
     }
 
     //add custom post types
@@ -141,6 +157,28 @@
     //Adjust default query
     add_action('pre_get_posts', 'university_adjust_queries');
 
-   
+    add_action('admin_init', 'redirectSubsToFront');
+
+    function redirectSubsToFront() {
+        $currentUser = wp_get_current_user();
+
+        if(count($currentUser->roles) == 1 && $currentUser->roles[0] == 'subscriber') {
+            wp_redirect(site_url('/'));
+            exit;
+        }
+    }
+
+    add_action('wp_loaded', 'noAdminBarUsers');
+
+    function noAdminBarUsers() {
+        $currentUser = wp_get_current_user();
+
+        if(count($currentUser->roles) == 1 && $currentUser->roles[0] == 'subscriber') {
+           show_admin_bar(false);
+        }
+    }
+    remove_filter( 'the_content', 'wpautop' );
+
+
 
 ?>

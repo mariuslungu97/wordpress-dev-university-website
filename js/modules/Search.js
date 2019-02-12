@@ -136,6 +136,7 @@ class Search {
         this.searchTerm.val('');
         setTimeout(() => this.searchTerm.focus(), 350);
         this.isOverlayOpen = true;
+        return false;
     }
 
     closeOverlay() {

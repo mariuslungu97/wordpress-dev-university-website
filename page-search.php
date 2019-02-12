@@ -1,10 +1,7 @@
 <!-- File used to define a page (fallback: index.php) -->
 <?php
-
-    
-
     get_header();
-    //Check if there are any posts
+    
     if(have_posts()) {
        
         while(have_posts()) {
@@ -41,10 +38,8 @@
                             <ul class="min-list">
                                 <?php 
                                 if($parentId) { 
-                                    //if the page has a parent, find children of parent
                                     $findChildrenOf = $parentId;
                                 } else {
-                                    //if the page does not have a parent, find children of current page
                                     $findChildrenOf = get_the_ID();
                                 }
                                 //list pages
@@ -59,8 +54,9 @@
 
                     <?php }; ?>
 
+                <!-- Non-JS Search Form -->
                 <div class="generic-content">
-                    <?php the_content(); ?>
+                    <?php get_search_form(); ?>
                 </div>
 
             </div>
