@@ -120,7 +120,7 @@ class Search {
     //feature to press S to open search bar and tab to close it
     keyPressDispatcher(event) {
         
-        if(event.keyCode === 83 && !this.isOverlayOpen && !$('input', 'textarea').is(':focus')) {
+        if(event.keyCode === 83 && !this.isOverlayOpen && !$('input, textarea').is(':focus')) {
             this.openOverlay();
         }
 

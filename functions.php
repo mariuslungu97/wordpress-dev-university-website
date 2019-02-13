@@ -46,7 +46,8 @@
         wp_enqueue_style('font-awesome', '//use.fontawesome.com/releases/v5.7.1/css/all.css');
         wp_enqueue_style('university_main_style', get_stylesheet_uri(), NULL, microtime() );
         wp_localize_script('main-university-js', 'universityData', array(
-            'root_url' => get_site_url()
+            'root_url' => get_site_url(),
+            'nonce' => wp_create_nonce('wp_rest')
         ));
     }
     //load CSS, JS scripts and custom fonts
