@@ -27,11 +27,9 @@
                     <?php } ?>
                         
                         <?php 
-                        //grab the child pages of the current page
                         $testArray = get_pages(array(
                             'child_of' => get_the_id()
                         ));
-                        //Test if the current page either is a parent or a children of another page
                         if($parentId || $testArray): ?>
                         <div class="page-links">
                             <h2 class="page-links__title"><a href="<?php the_permalink(get_the_ID()); ?>"><?php the_title(); ?></a></h2>
@@ -42,7 +40,6 @@
                                 } else {
                                     $findChildrenOf = get_the_ID();
                                 }
-                                //list pages
                                 wp_list_pages([
                                     'title_li' => NULL,
                                     'child_of' => $findChildrenOf,

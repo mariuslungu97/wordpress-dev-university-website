@@ -27,7 +27,6 @@ class Search {
     }
 
     searchForTerm() {
-        //current searching term not equal with previous value
         if(this.searchTerm.val() != this.searchingValue) {
             //clear timeout if keyup pressed continiously
             clearTimeout(this.typingTimer);
@@ -46,7 +45,6 @@ class Search {
             }
             
         }
-        //set previous val to current val
         this.searchingValue = this.searchTerm.val();
     }
 
@@ -113,7 +111,7 @@ class Search {
             `);
 
         }, (err) => {
-            console.log('There has been an error in retrieving the information: ' + err);
+            console.log('There has been an error in retrieving ~the information: ' + err);
         });        
     }
 

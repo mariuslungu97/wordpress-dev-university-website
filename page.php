@@ -4,7 +4,6 @@
     
 
     get_header();
-    //Check if there are any posts
     if(have_posts()) {
        
         while(have_posts()) {
@@ -30,24 +29,19 @@
                     <?php } ?>
                         
                         <?php 
-                        //grab the child pages of the current page
                         $testArray = get_pages(array(
                             'child_of' => get_the_id()
                         ));
-                        //Test if the current page either is a parent or a children of another page
                         if($parentId || $testArray): ?>
                         <div class="page-links">
                             <h2 class="page-links__title"><a href="<?php the_permalink(get_the_ID()); ?>"><?php the_title(); ?></a></h2>
                             <ul class="min-list">
                                 <?php 
                                 if($parentId) { 
-                                    //if the page has a parent, find children of parent
                                     $findChildrenOf = $parentId;
                                 } else {
-                                    //if the page does not have a parent, find children of current page
                                     $findChildrenOf = get_the_ID();
                                 }
-                                //list pages
                                 wp_list_pages([
                                     'title_li' => NULL,
                                     'child_of' => $findChildrenOf,

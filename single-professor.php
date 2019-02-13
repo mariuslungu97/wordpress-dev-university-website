@@ -1,11 +1,9 @@
 <!-- File used to define an Event post (fallback: index.php) -->
 <?php
     get_header();
-    //Check if there are any posts
     if(have_posts()) {
     
         while(have_posts()) {
-            //moves through the queue
             the_post(); 
             pageBanner([
                 'title' => get_the_title()

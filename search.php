@@ -9,9 +9,7 @@
     <div class="container container--narrow page-section">
         <?php 
         if(have_posts()) {
-            #check if there are any posts
             while(have_posts()) {
-                #iterate through posts
                 the_post();
                 get_template_part('template-parts/content', get_post_type());
             }

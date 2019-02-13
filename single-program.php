@@ -1,11 +1,9 @@
 <!-- File used to define an Program post (fallback: index.php) -->
 <?php
     get_header();
-    //Check if there are any posts
     if(have_posts()) {
     
         while(have_posts()) {
-            //moves through the queue
             the_post(); 
             
             pageBanner([
@@ -29,7 +27,7 @@
 
                 
                 <?php
-                    #custom query to retrieve associated professors
+                    #retrieve associated professors
                     $homepageProffesors = new WP_Query(array(
                         'post_type' => 'professor',
                         'showposts' => -1,
@@ -72,7 +70,6 @@
                     #reset postdata to create another query
                     wp_reset_postdata();
 
-                    #create new query   
                     $today = date('Ymd');
                     $homepageEvents = new WP_Query(array(
                         'post_type' => 'event',

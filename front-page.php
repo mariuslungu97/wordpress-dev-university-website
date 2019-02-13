@@ -20,9 +20,9 @@
                     #create new custom query
                     $today = date('Ymd');
                     $homepageEvents = new WP_Query(array(
-                        'post_type' => 'event', //type of returned type of post
-                        'showposts' => 2, //nr of posts returned, -1 to be used to return all available posts of the provided type
-                        'meta_key' => 'event_date', // return all events with a set event date
+                        'post_type' => 'event', 
+                        'showposts' => 2,
+                        'meta_key' => 'event_date', 
                         'orderby' => 'meta_value_num',
                         'order' => 'ASC',
                         'meta_query' => array( //meta_query lets you apply filters to returned posts
