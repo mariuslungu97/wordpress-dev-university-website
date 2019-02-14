@@ -1,6 +1,9 @@
 # wordpress-dev-university-website
 University Fictional Dynamic Website Created with Wordpress, PHP, Javascript. 
 
+Live Website Link:
+https://mariusl.sgedu.site/
+
 This website has been created by leveraging many of the features offered by Wordpress, and the posssiblity to customize every single aspect
 of developing through their service. 
 
